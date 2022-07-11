@@ -15,7 +15,7 @@ class ChartController extends Controller
 	} // end method 
 
 
-	public function allChartContent()
+	public function allChartContents()
 	{
 		$chart = Chart::all();
 		return view('backend.chart.all_chart', compact('chart'));

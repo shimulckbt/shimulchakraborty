@@ -17,7 +17,7 @@ class ServiceController extends Controller
 	} // end method 
 
 
-	public function allService()
+	public function allServices()
 	{
 		$service = Services::all();
 		return view('backend.service.all_service', compact('service'));

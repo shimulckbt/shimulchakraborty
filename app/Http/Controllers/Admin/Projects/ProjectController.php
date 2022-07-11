@@ -33,7 +33,7 @@ class ProjectController extends Controller
 
 
 
-    public function allProject()
+    public function allProjects()
     {
         $projects = Projects::all();
         return view('backend.project.all_project', compact('projects'));

@@ -15,7 +15,7 @@ class ClientReviewController extends Controller
 		return $result;
 	} // end method 
 
-	public function allReview()
+	public function allReviews()
 	{
 		$review = ClientReview::all();
 		return view('backend.review.all_review', compact('review'));

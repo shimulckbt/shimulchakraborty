@@ -50,7 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Information All Routes 
     Route::prefix('information')->group(function () {
 
-        Route::get('/all', [InformationController::class, 'allInformation'])->name('all.information');
+        Route::get('/all', [InformationController::class, 'allInformations'])->name('all.information');
 
         Route::get('/add', [InformationController::class, 'addInformation'])->name('add.information');
 
@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Services All Routes 
     Route::prefix('service')->group(function () {
 
-        Route::get('/all', [ServiceController::class, 'allService'])->name('all.services');
+        Route::get('/all', [ServiceController::class, 'allServices'])->name('all.services');
 
         Route::get('/add', [ServiceController::class, 'addService'])->name('add.services');
 
@@ -83,7 +83,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Project All Routes 
     Route::prefix('project')->group(function () {
 
-        Route::get('/all', [ProjectController::class, 'allProject'])->name('all.projects');
+        Route::get('/all', [ProjectController::class, 'allProjects'])->name('all.projects');
 
         Route::get('/add', [ProjectController::class, 'addProject'])->name('add.projects');
 
@@ -116,7 +116,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Home Content All Routes 
     Route::prefix('home')->group(function () {
 
-        Route::get('/all', [HomePageEtcController::class, 'allHomeContent'])->name('all.home.content');
+        Route::get('/all', [HomePageEtcController::class, 'allHomeContents'])->name('all.home.content');
 
         Route::get('/add', [HomePageEtcController::class, 'addHomeContent'])->name('add.home.content');
 
@@ -133,7 +133,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Client Review All Routes 
     Route::prefix('review')->group(function () {
 
-        Route::get('/all', [ClientReviewController::class, 'allReview'])->name('all.review');
+        Route::get('/all', [ClientReviewController::class, 'allReviews'])->name('all.review');
 
         Route::get('/add', [ClientReviewController::class, 'addReview'])->name('add.review');
 
@@ -150,7 +150,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Footer Content All Routes 
     Route::prefix('footer')->group(function () {
 
-        Route::get('/all', [FooterController::class, 'allFooterContent'])->name('all.footer.content');
+        Route::get('/all', [FooterController::class, 'allFooterContents'])->name('all.footer.content');
 
         Route::get('/edit/{id}', [FooterController::class, 'editFooterContent'])->name('edit.footer');
 
@@ -163,7 +163,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Chart Content All Routes 
     Route::prefix('chart')->group(function () {
 
-        Route::get('/all', [ChartController::class, 'allChartContent'])->name('all.chart.content');
+        Route::get('/all', [ChartController::class, 'allChartContents'])->name('all.chart.content');
 
         Route::get('/edit/{id}', [ChartController::class, 'editChartContent'])->name('edit.chart');
 
@@ -173,7 +173,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     });
 
 
-    Route::get('/all', [ContactController::class, 'allContactMessage'])->name('contact.message');
+    Route::get('/all', [ContactController::class, 'allContactMessages'])->name('contact.message');
 
     Route::get('/delete/message/{id}', [ContactController::class, 'deleteContactMessage'])->name('delete.message');
 });

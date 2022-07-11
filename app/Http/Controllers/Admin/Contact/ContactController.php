@@ -32,7 +32,7 @@ class ContactController extends Controller
     } // end method 
 
 
-    public function allContactMessage()
+    public function allContactMessages()
     {
         $contact = Contact::all();
         return view('backend.contact.all_contact', compact('contact'));

@@ -38,7 +38,7 @@ class HomePageEtcController extends Controller
 
 
 
-    public function allHomeContent()
+    public function allHomeContents()
     {
 
         $homecontent = HomePageEtc::all();

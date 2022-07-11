@@ -16,7 +16,7 @@ class InformationController extends Controller
 	} // end mehtod 
 
 
-	public function allInformation()
+	public function allInformations()
 	{
 		$result = Information::all();
 		return view('backend.information.all_information', compact('result'));

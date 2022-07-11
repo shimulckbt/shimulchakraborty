@@ -16,7 +16,7 @@ class FooterController extends Controller
 	} // end mehtod 
 
 
-	public function allFooterContent()
+	public function allFooterContents()
 	{
 		$footer = Footer::all();
 		return view('backend.footer.all_footer', compact('footer'));
