@@ -1,5 +1,6 @@
  <div class="footer">
-            <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="https://www.easylearningbd.com//" target="_blank">Easy Learning</a> 2021</p>
-            </div>
-        </div>
+     <div class="copyright">
+         <p>Copyright © Designed &amp; Developed by <a href="https://www.shimulckbt.com/" target="_blank">Shimul
+                 Chakraborty</a> 2022</p>
+     </div>
+ </div>
