@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Contact;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,10 +9,11 @@ use App\Models\Contact;
 class ContactController extends Controller
 
 {
-   public function onContactSend(Request $request){
-        
-        $ContactArray = json_decode($request->getContent(),true);
-        
+    public function onContactSend(Request $request)
+    {
+
+        $ContactArray = json_decode($request->getContent(), true);
+
         $name = $ContactArray['name'];
         $email = $ContactArray['email'];
         $message = $ContactArray['message'];
@@ -23,22 +24,23 @@ class ContactController extends Controller
             'message' => $message,
         ]);
 
-        if ($result == true ) {
+        if ($result == true) {
             return 1;
-        }else{
+        } else {
             return 0;
         }
-
-    }// end method 
-
-
-    public function AllContactMessage(){
-          $contact = Contact::all();
-        return view('backend.contact.all_contact',compact('contact'));
     } // end method 
 
 
-    public function DeleteContactMessage($id){
+    public function AllContactMessage()
+    {
+        $contact = Contact::all();
+        return view('backend.contact.all_contact', compact('contact'));
+    } // end method 
+
+
+    public function DeleteContactMessage($id)
+    {
 
         Contact::findOrFail($id)->delete();
 
@@ -48,8 +50,6 @@ class ContactController extends Controller
         );
 
         return redirect()->back()->with($notification);
-
     } // end mehtod 
 
 }
- 
