@@ -13,7 +13,6 @@ use App\Http\Controllers\Admin\Chart\ChartController;
 use App\Http\Controllers\Admin\Contact\ContactController;
 use Illuminate\Support\Facades\Auth;
 
-Service
 /*
 |--------------------------------------------------------------------------
 | Web Routes

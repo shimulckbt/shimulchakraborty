@@ -16,21 +16,21 @@ class FooterController extends Controller
 	} // end mehtod 
 
 
-	public function AllFooterContent()
+	public function allFooterContent()
 	{
 		$footer = Footer::all();
 		return view('backend.footer.all_footer', compact('footer'));
 	} // end mehtod 
 
 
-	public function EditFooterContent($id)
+	public function editFooterContent($id)
 	{
 		$footer = Footer::findOrFail($id);
 		return view('backend.footer.edit_footer', compact('footer'));
 	} // end mehtod 
 
 
-	public function UpdateFooterContent(Request $request)
+	public function updateFooterContent(Request $request)
 	{
 		$footer_id = $request->id;
 

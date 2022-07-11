@@ -15,20 +15,20 @@ class ClientReviewController extends Controller
 		return $result;
 	} // end method 
 
-	public function AllReview()
+	public function allReview()
 	{
 		$review = ClientReview::all();
 		return view('backend.review.all_review', compact('review'));
 	} // end method 
 
 
-	public function AddReview()
+	public function addReview()
 	{
 		return view('backend.review.add_review');
 	} // end method 
 
 
-	public function StoreReview(Request $request)
+	public function storeReview(Request $request)
 	{
 
 		$request->validate([
@@ -61,7 +61,7 @@ class ClientReviewController extends Controller
 	} // end method 
 
 
-	public function EditReview($id)
+	public function editReview($id)
 	{
 
 		$review = ClientReview::findOrFail($id);
@@ -69,7 +69,7 @@ class ClientReviewController extends Controller
 	} // end method 
 
 
-	public function UpdateReview(Request $request)
+	public function updateReview(Request $request)
 	{
 
 		$review_id = $request->id;
@@ -113,7 +113,7 @@ class ClientReviewController extends Controller
 	} // end method 
 
 
-	public function DeleteReview($id)
+	public function deleteReview($id)
 	{
 
 		ClientReview::findOrFail($id)->delete();

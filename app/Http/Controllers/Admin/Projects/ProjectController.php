@@ -24,7 +24,7 @@ class ProjectController extends Controller
     } // end mehtod 
 
 
-    public function ProjectDetails($projectId)
+    public function projectDetails($projectId)
     {
         $id = $projectId;
         $result = Projects::where('id', $id)->get();
@@ -33,20 +33,20 @@ class ProjectController extends Controller
 
 
 
-    public function AllProject()
+    public function allProject()
     {
         $projects = Projects::all();
         return view('backend.project.all_project', compact('projects'));
     } // end mehtod 
 
 
-    public function AddProject()
+    public function addProject()
     {
         return view('backend.project.add_project');
     } // end mehtod 
 
 
-    public function StoreProject(Request $request)
+    public function storeProject(Request $request)
     {
 
         $request->validate([
@@ -88,17 +88,15 @@ class ProjectController extends Controller
     } // end mehtod
 
 
-    public function EditProject($id)
+    public function editProject($id)
     {
-
         $project = Projects::findOrFail($id);
         return view('backend.project.edit_project', compact('project'));
     } // end mehtod 
 
 
-    public function UpdateProject(Request $request)
+    public function updateProject(Request $request)
     {
-
         $project_id = $request->id;
 
         if ($request->file('img_one')) {
@@ -149,7 +147,7 @@ class ProjectController extends Controller
     } // end method 
 
 
-    public function DeleteProject($id)
+    public function deleteProject($id)
     {
 
         Projects::findOrFail($id)->delete();

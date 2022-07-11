@@ -8,21 +8,20 @@ use App\Models\HomePageEtc;
 
 class HomePageEtcController extends Controller
 {
-    public function SelectVideo()
+    public function selectVideo()
     {
-
         $result = HomePageEtc::select('video_desciption', 'video_url')->get();
         return $result;
     } // end method 
 
-    public function SelectTotalHome()
+    public function selectTotalHome()
     {
 
         $result = HomePageEtc::select('total_student', 'total_course', 'total_review')->get();
         return $result;
     } // end method 
 
-    public function SelectTechHome()
+    public function selectTechHome()
     {
 
         $result = HomePageEtc::select('tech_description')->get();
@@ -30,7 +29,7 @@ class HomePageEtcController extends Controller
     } // end method 
 
 
-    public function SelectHomeTitle()
+    public function selectHomeTitle()
     {
 
         $result = HomePageEtc::select('home_title', 'home_subtitle')->get();
@@ -39,7 +38,7 @@ class HomePageEtcController extends Controller
 
 
 
-    public function AllHomeContent()
+    public function allHomeContent()
     {
 
         $homecontent = HomePageEtc::all();
@@ -47,13 +46,13 @@ class HomePageEtcController extends Controller
     } // end method 
 
 
-    public function AddHomeContent()
+    public function addHomeContent()
     {
         return view('backend.homecontent.add_homecontent');
     } // end method 
 
 
-    public function StoreHomeContent(Request $request)
+    public function storeHomeContent(Request $request)
     {
 
         $request->validate([
@@ -89,16 +88,15 @@ class HomePageEtcController extends Controller
     } // end method 
 
 
-    public function EditHomeContent($id)
+    public function editHomeContent($id)
     {
 
         $homecontent = HomePageEtc::findOrFail($id);
         return view('backend.homecontent.edit_homecontent', compact('homecontent'));
     } // end method 
 
-    public function UpdateHomeContent(Request $request)
+    public function updateHomeContent(Request $request)
     {
-
         $home_id = $request->id;
 
         HomePageEtc::findOrFail($home_id)->update([
@@ -122,7 +120,7 @@ class HomePageEtcController extends Controller
     } // end method 
 
 
-    public function DeleteHomeContent($id)
+    public function deleteHomeContent($id)
     {
 
         HomePageEtc::findOrFail($id)->delete();

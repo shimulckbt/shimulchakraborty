@@ -32,14 +32,14 @@ class ContactController extends Controller
     } // end method 
 
 
-    public function AllContactMessage()
+    public function allContactMessage()
     {
         $contact = Contact::all();
         return view('backend.contact.all_contact', compact('contact'));
     } // end method 
 
 
-    public function DeleteContactMessage($id)
+    public function deleteContactMessage($id)
     {
 
         Contact::findOrFail($id)->delete();

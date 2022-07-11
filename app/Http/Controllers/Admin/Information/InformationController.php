@@ -16,7 +16,7 @@ class InformationController extends Controller
 	} // end mehtod 
 
 
-	public function AllInformation()
+	public function allInformation()
 	{
 		$result = Information::all();
 		return view('backend.information.all_information', compact('result'));
@@ -24,13 +24,13 @@ class InformationController extends Controller
 
 
 
-	public function AddInformation()
+	public function addInformation()
 	{
 		return view('backend.information.add_information');
 	} // end method 
 
 
-	public function StoreInformation(Request $request)
+	public function storeInformation(Request $request)
 	{
 
 		Information::insert([
@@ -49,7 +49,7 @@ class InformationController extends Controller
 	} // end method 
 
 
-	public function EditInformation($id)
+	public function editInformation($id)
 	{
 
 		$information = Information::findOrFail($id);
@@ -57,7 +57,7 @@ class InformationController extends Controller
 	} // end method 
 
 
-	public function UpdateInformation(Request $request, $id)
+	public function updateInformation(Request $request, $id)
 	{
 
 		Information::findOrFail($id)->update([
@@ -77,7 +77,7 @@ class InformationController extends Controller
 
 
 
-	public function DeleteInformation($id)
+	public function deleteInformation($id)
 	{
 
 		Information::findOrFail($id)->delete();

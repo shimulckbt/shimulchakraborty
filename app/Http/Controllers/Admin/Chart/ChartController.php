@@ -15,21 +15,21 @@ class ChartController extends Controller
 	} // end method 
 
 
-	public function AllChartContent()
+	public function allChartContent()
 	{
 		$chart = Chart::all();
 		return view('backend.chart.all_chart', compact('chart'));
 	} // end method 
 
 
-	public function EditChartContent($id)
+	public function editChartContent($id)
 	{
 		$chart = Chart::findOrFail($id);
 		return view('backend.chart.edit_chart', compact('chart'));
 	} // end method 
 
 
-	public function UpdateChartContent(Request $request)
+	public function updateChartContent(Request $request)
 	{
 
 		$chart_id = $request->id;

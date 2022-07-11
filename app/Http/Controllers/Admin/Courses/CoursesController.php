@@ -22,7 +22,7 @@ class CoursesController extends Controller
         return $result;
     } // end mehtod 
 
-    public function OnSelectDetails($courseId)
+    public function onSelectDetails($courseId)
     {
 
         $id = $courseId;
@@ -32,7 +32,7 @@ class CoursesController extends Controller
 
 
 
-    public function AllCourses()
+    public function allCourses()
     {
 
         $courses = Courses::all();
@@ -41,13 +41,13 @@ class CoursesController extends Controller
 
 
 
-    public function AddCourses()
+    public function addCourses()
     {
         return view('backend.courses.add_courses');
     } // end mehtod 
 
 
-    public function StoreCourses(Request $request)
+    public function storeCourses(Request $request)
     {
 
         $request->validate([
@@ -87,7 +87,7 @@ class CoursesController extends Controller
     } // end method 
 
 
-    public function EditCourses($id)
+    public function editCourses($id)
     {
 
         $courses = Courses::findOrFail($id);
@@ -95,7 +95,7 @@ class CoursesController extends Controller
     } // end method 
 
 
-    public function UpdateCourses(Request $request)
+    public function updateCourses(Request $request)
     {
 
 
@@ -154,7 +154,7 @@ class CoursesController extends Controller
     } // end method 
 
 
-    public function DeleteCourses($id)
+    public function deleteCourses($id)
     {
 
         Courses::findOrFail($id)->delete();

@@ -9,7 +9,7 @@ use Image;
 
 class ServiceController extends Controller
 {
-	public function ServiceView()
+	public function serviceView()
 	{
 
 		$services = Services::latest()->get();
@@ -17,14 +17,14 @@ class ServiceController extends Controller
 	} // end method 
 
 
-	public function AllService()
+	public function allService()
 	{
 		$service = Services::all();
 		return view('backend.service.all_service', compact('service'));
 	} // end method 
 
 
-	public function AddService()
+	public function addService()
 	{
 
 		return view('backend.service.add_service');
@@ -32,7 +32,7 @@ class ServiceController extends Controller
 
 
 
-	public function StoreService(Request $request)
+	public function storeService(Request $request)
 	{
 
 		$request->validate([
@@ -66,7 +66,7 @@ class ServiceController extends Controller
 
 
 
-	public function EditService($id)
+	public function editService($id)
 	{
 
 		$services = Services::findOrFail($id);
@@ -74,7 +74,7 @@ class ServiceController extends Controller
 	} // end method 
 
 
-	public function UpdateService(Request $request)
+	public function updateService(Request $request)
 	{
 
 		$service_id = $request->id;
@@ -118,7 +118,7 @@ class ServiceController extends Controller
 	} // end method 
 
 
-	public function DeleteService($id)
+	public function deleteService($id)
 	{
 
 		Services::findOrFail($id)->delete();
