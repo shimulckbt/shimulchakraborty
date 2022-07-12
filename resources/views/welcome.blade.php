@@ -18,7 +18,7 @@
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <a href="#" class="nav__logo">Shimul Chakraborty</a>
+                <a href="{{ route('welcome') }}" class="nav__logo" style="font-size: 1.2rem">Shimul Chakraborty</a>
             </div>
 
             <div class="nav__menu" id="nav-menu">
@@ -51,6 +51,8 @@
                 <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
                 <a href="" class="home__social-icon"><i class='bx bxl-stack-overflow'></i></a>
                 <a href="" class="home__social-icon"><i class='bx bxl-github'></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=shimulckbt@gmail.com" target="_blank"
+                    title="gmail.com" class="home__social-icon"><i class='bx bx-envelope'></i></a>
             </div>
 
             <div class="home__img">
@@ -242,8 +244,9 @@
                 <form action="" class="contact__form">
                     <input type="text" placeholder="Name" class="contact__input">
                     <input type="mail" placeholder="Email" class="contact__input">
-                    <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                    <input type="button" value="Enviar" class="contact__button button">
+                    <textarea name="" id="" cols="0" rows="10" placeholder="Write Something.."
+                        class="contact__input"></textarea>
+                    <input type="button" value="Submit" class="contact__button button">
                 </form>
             </div>
         </section>
@@ -251,13 +254,14 @@
 
     <!--===== FOOTER =====-->
     <footer class="footer">
-        <p class="footer__title">Marlon</p>
+        <p class="footer__title">Shimul</p>
         <div class="footer__social">
             <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
             <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
             <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
         </div>
-        <p class="footer__copy">&#169; SHIMULCKBT.COM All rigths reserved</p>
+
+        <p class="footer__copy">2022 &#169; shimulckbt.com All rigths reserved</p>
     </footer>
 
 
