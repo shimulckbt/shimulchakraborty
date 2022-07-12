@@ -45,7 +45,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/change-password', [AdminUserController::class, 'userChangePassword'])->name('change.password');
 
-    Route::post('/change/password-update', [AdminUserController::class, 'userPasswordUpdate'])->name('change.password.update');
+    Route::post('/password-update', [AdminUserController::class, 'userPasswordUpdate'])->name('change.password.update');
 
     // Information All Routes 
     Route::prefix('information')->group(function () {
@@ -74,7 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::get('/edit/{id}', [ServiceController::class, 'editService'])->name('edit.service');
 
-        Route::post('/update/', [ServiceController::class, 'updateService'])->name('service.update');
+        Route::post('/update', [ServiceController::class, 'updateService'])->name('service.update');
 
         Route::get('/delete/{id}', [ServiceController::class, 'deleteService'])->name('delete.service');
     });
@@ -91,7 +91,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::get('/edit/{id}', [ProjectController::class, 'editProject'])->name('edit.project');
 
-        Route::post('/update/', [ProjectController::class, 'updateProject'])->name('project.update');
+        Route::post('/update', [ProjectController::class, 'updateProject'])->name('project.update');
 
         Route::get('/delete/{id}', [ProjectController::class, 'deleteProject'])->name('delete.project');
     });
@@ -107,7 +107,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::get('/edit/{id}', [CoursesController::class, 'editCourses'])->name('edit.courses');
 
-        Route::post('/update/', [CoursesController::class, 'updateCourses'])->name('courses.update');
+        Route::post('/update', [CoursesController::class, 'updateCourses'])->name('courses.update');
 
         Route::get('/delete/{id}', [CoursesController::class, 'deleteCourses'])->name('delete.courses');
     });
@@ -124,7 +124,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::get('/edit/{id}', [HomePageEtcController::class, 'editHomeContent'])->name('edit.homecontent');
 
-        Route::post('/update/', [HomePageEtcController::class, 'updateHomeContent'])->name('homecontent.update');
+        Route::post('/update', [HomePageEtcController::class, 'updateHomeContent'])->name('homecontent.update');
 
         Route::get('/delete/{id}', [HomePageEtcController::class, 'deleteHomeContent'])->name('delete.homecontent');
     });
@@ -141,7 +141,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::get('/edit/{id}', [ClientReviewController::class, 'editReview'])->name('edit.review');
 
-        Route::post('/update/', [ClientReviewController::class, 'updateReview'])->name('review.update');
+        Route::post('/update', [ClientReviewController::class, 'updateReview'])->name('review.update');
 
         Route::get('/delete/{id}', [ClientReviewController::class, 'deleteReview'])->name('delete.review');
     });
@@ -154,7 +154,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::get('/edit/{id}', [FooterController::class, 'editFooterContent'])->name('edit.footer');
 
-        Route::post('/update/', [FooterController::class, 'updateFooterContent'])->name('footer.update');
+        Route::post('/update', [FooterController::class, 'updateFooterContent'])->name('footer.update');
 
         Route::get('/delete/{id}', [ClientReviewController::class, 'deleteReview'])->name('delete.review');
     });
@@ -167,7 +167,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::get('/edit/{id}', [ChartController::class, 'editChartContent'])->name('edit.chart');
 
-        Route::post('/update/', [ChartController::class, 'updateChartContent'])->name('chart.update');
+        Route::post('/update', [ChartController::class, 'updateChartContent'])->name('chart.update');
 
         Route::get('/delete/{id}', [ClientReviewController::class, 'deleteReview'])->name('delete.review');
     });
