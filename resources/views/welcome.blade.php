@@ -10,7 +10,7 @@
     <!-- =====BOX ICONS===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Portfolio website complete</title>
+    <title>Portfolio website</title>
 </head>
 
 <body>
@@ -18,7 +18,11 @@
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <a href="{{ route('welcome') }}" class="nav__logo" style="font-size: 1.2rem">Shimul Chakraborty</a>
+                @php
+                    $result = App\Models\HomePageEtc::select('home_title', 'home_subtitle')->get();
+                @endphp
+                <a href="{{ route('welcome') }}" class="nav__logo" {{ dd($result->home_title) }}
+                    style="font-size: 1.2rem">{{ isset($result->home_title) ? $result->home_title : 'Shimul' }}</a>
             </div>
 
             <div class="nav__menu" id="nav-menu">

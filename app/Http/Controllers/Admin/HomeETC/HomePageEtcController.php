@@ -33,7 +33,7 @@ class HomePageEtcController extends Controller
     {
 
         $result = HomePageEtc::select('home_title', 'home_subtitle')->get();
-        return $result;
+        return view('welcome', compact('result'));
     } // end method 
 
 
