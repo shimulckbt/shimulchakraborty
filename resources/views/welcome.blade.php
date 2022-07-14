@@ -14,16 +14,20 @@
 </head>
 
 <body>
+    @php
+        $result = App\Models\HomePageEtc::select('home_title', 'home_subtitle')->first();
+        $profile = App\Models\User::select('profile_photo_path')->first();
+    @endphp
     <!--===== HEADER =====-->
     <header class="l-header">
         <nav class="nav bd-grid">
+            {{-- {{ dd($result->home_title) }} --}}
             <div>
-                @php
-                    $result = App\Models\HomePageEtc::select('home_title', 'home_subtitle')->get();
-                @endphp
-                <a href="{{ route('welcome') }}" class="nav__logo" {{ dd($result->home_title) }}
+                <a href="{{ route('welcome') }}" class="nav__logo"
                     style="font-size: 1.2rem">{{ isset($result->home_title) ? $result->home_title : 'Shimul' }}</a>
+
             </div>
+
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
@@ -46,7 +50,9 @@
         <!--===== HOME =====-->
         <section class="home bd-grid" id="home">
             <div class="home__data">
-                <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Shimul</span><br> Web Developer</h1>
+                <h1 class="home__title">Hi,<br>I'am <span
+                        class="home__title-color">{{ isset($result->home_subtitle) ? $result->home_subtitle : 'Baal' }}</span><br>
+                    Web Developer</h1>
 
                 <a href="#" class="button">Contact</a>
             </div>
@@ -70,7 +76,7 @@
                         <path
                             d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
                         <image class="home__blob-img" x="50" y="60"
-                            href="{{ asset('frontend/img/final-removebg.png') }}" />
+                            href="{{ isset($profile->profile_photo_path) ? asset('upload/user_images/' . $profile->profile_photo_path) : asset('frontend/img/final-removebg.png') }}" />
                     </g>
                 </svg>
             </div>
