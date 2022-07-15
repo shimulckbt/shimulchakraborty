@@ -63,7 +63,7 @@ class CoursesController extends Controller
         $image = $request->file('small_img');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(626, 417)->save('upload/courses/' . $name_gen);
-        $save_url = 'http://127.0.0.1:8000/upload/courses/' . $name_gen;
+        $save_url = env('APP_URL') . '/upload/courses/' . $name_gen;
 
         Courses::insert([
             'short_title' => $request->short_title,
@@ -106,7 +106,7 @@ class CoursesController extends Controller
             $image = $request->file('small_img');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(626, 417)->save('upload/courses/' . $name_gen);
-            $save_url = 'http://127.0.0.1:8000/upload/courses/' . $name_gen;
+            $save_url = env('APP_URL') . '/upload/courses/' . $name_gen;
 
             Courses::findOrFail($course_id)->update([
 

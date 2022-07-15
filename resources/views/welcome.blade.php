@@ -20,8 +20,9 @@
         $links = App\Models\Footer::first();
         $skills = App\Models\Chart::all();
         $services = App\Models\Services::all();
+        $projects = App\Models\Projects::select('img_one')->get();
     @endphp
-    {{-- {{ dd($services) }} --}}
+    {{-- {{ dd($projects) }} --}}
     <!--===== HEADER =====-->
     <header class="l-header">
         <nav class="nav bd-grid">
@@ -165,35 +166,6 @@
                             </div>
                         </div>
                     @endforeach
-                    {{-- <div class="card-wrap">
-                        <div class="card" data-card="DESIGN">
-                            <div class="card-content z-index">
-                                <img src="{{ asset('frontend/img/design-icon.png') }}" class="icon"
-                                    alt="" />
-                                <h3 class="title-sm">Web Design</h3>
-                                <p class="text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-                                    est suscipit itaque?
-                                </p>
-                            </div>
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="card-wrap">
-                        <div class="card" data-card="CODE">
-                            <div class="card-content z-index">
-                                <img src="{{ asset('frontend/img/points3.png') }}" class="points points1 points-sq"
-                            alt="" />
-                                <img src="{{ asset('frontend/img/code-icon.png') }}" class="icon"
-                                    alt="" />
-                                <h3 class="title-sm">Web Development</h3>
-                                <p class="text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Dolores suscipit nobis dolore?
-                                </p>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </section>
@@ -204,24 +176,12 @@
             <h2 class="section-title">Work</h2>
 
             <div class="work__container bd-grid">
-                <a href="" class="work__img">
-                    <img src="{{ asset('frontend/img/work1.jpg') }}" alt="">
-                </a>
-                <a href="" class="work__img">
-                    <img src="{{ asset('frontend/img/work2.jpg') }}" alt="">
-                </a>
-                <a href="" class="work__img">
-                    <img src="{{ asset('frontend/img/work3.jpg') }}" alt="">
-                </a>
-                <a href="" class="work__img">
-                    <img src="{{ asset('frontend/img/work4.jpg') }}" alt="">
-                </a>
-                <a href="" class="work__img">
-                    <img src="{{ asset('frontend/img/work5.jpg') }}" alt="">
-                </a>
-                <a href="" class="work__img">
-                    <img src="{{ asset('frontend/img/work6.jpg') }}" alt="">
-                </a>
+                @foreach ($projects as $project)
+                    <a href="#work" class="work__img">
+                        <img src="{{ isset($project->img_one) ? asset($project->img_one) : asset('frontend/img/work1.jpg') }}"
+                            alt="">
+                    </a>
+                @endforeach
             </div>
         </section>
 

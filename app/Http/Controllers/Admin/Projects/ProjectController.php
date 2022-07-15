@@ -61,14 +61,14 @@ class ProjectController extends Controller
 
         $image_one = $request->file('img_one');
         $name_gen = hexdec(uniqid()) . '.' . $image_one->getClientOriginalExtension();
-        Image::make($image_one)->resize(626, 417)->save('upload/project/' . $name_gen);
-        $save_url_one = 'http://127.0.0.1:8000/upload/project/' . $name_gen;
+        Image::make($image_one)->resize(319, 212)->save('upload/project/' . $name_gen);
+        $save_url_one = env('APP_URL') . '/upload/project/' . $name_gen;
 
 
         $image_two = $request->file('img_two');
         $name_gen = hexdec(uniqid()) . '.' . $image_two->getClientOriginalExtension();
-        Image::make($image_two)->resize(540, 607)->save('upload/project/' . $name_gen);
-        $save_url_two = 'http://127.0.0.1:8000/upload/project/' . $name_gen;
+        Image::make($image_two)->resize(319, 212)->save('upload/project/' . $name_gen);
+        $save_url_two = env('APP_URL') . '/upload/project/' . $name_gen;
 
         Projects::insert([
             'project_name' => $request->project_name,
@@ -103,14 +103,14 @@ class ProjectController extends Controller
 
             $image_one = $request->file('img_one');
             $name_gen = hexdec(uniqid()) . '.' . $image_one->getClientOriginalExtension();
-            Image::make($image_one)->resize(626, 417)->save('upload/project/' . $name_gen);
-            $save_url_one = 'http://127.0.0.1:8000/upload/project/' . $name_gen;
+            Image::make($image_one)->resize(319, 212)->save('upload/project/' . $name_gen);
+            $save_url_one = env('APP_URL') . '/upload/project/' . $name_gen;
 
 
             $image_two = $request->file('img_two');
             $name_gen = hexdec(uniqid()) . '.' . $image_two->getClientOriginalExtension();
-            Image::make($image_two)->resize(540, 607)->save('upload/project/' . $name_gen);
-            $save_url_two = 'http://127.0.0.1:8000/upload/project/' . $name_gen;
+            Image::make($image_two)->resize(319, 212)->save('upload/project/' . $name_gen);
+            $save_url_two = env('APP_URL') . '/upload/project/' . $name_gen;
 
             Projects::findOrFail($project_id)->update([
                 'project_name' => $request->project_name,
