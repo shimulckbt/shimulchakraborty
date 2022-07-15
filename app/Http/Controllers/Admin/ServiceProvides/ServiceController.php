@@ -48,7 +48,7 @@ class ServiceController extends Controller
 		$image = $request->file('service_logo');
 		$name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
 		Image::make($image)->resize(512, 512)->save('upload/service/' . $name_gen);
-		$save_url = 'http://127.0.0.1:8000/upload/service/' . $name_gen;
+		$save_url = env('APP_URL') . '/upload/service/' . $name_gen;
 
 		Services::insert([
 			'service_name' => $request->service_name,
@@ -84,7 +84,7 @@ class ServiceController extends Controller
 			$image = $request->file('service_logo');
 			$name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
 			Image::make($image)->resize(512, 512)->save('upload/service/' . $name_gen);
-			$save_url = 'http://127.0.0.1:8000/upload/service/' . $name_gen;
+			$save_url = env('APP_URL') . '/upload/service/' . $name_gen;
 
 			Services::findOrFail($service_id)->update([
 

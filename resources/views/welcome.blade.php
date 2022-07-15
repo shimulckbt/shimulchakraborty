@@ -19,8 +19,9 @@
         $profile = App\Models\User::select('profile_photo_path')->first();
         $links = App\Models\Footer::first();
         $skills = App\Models\Chart::all();
+        $services = App\Models\Services::all();
     @endphp
-    {{-- {{ dd($links) }} --}}
+    {{-- {{ dd($services) }} --}}
     <!--===== HEADER =====-->
     <header class="l-header">
         <nav class="nav bd-grid">
@@ -133,42 +134,6 @@
                             </div>
                         </div>
                     @endforeach
-                    {{-- <div class="skills__data">
-                        <div class="skills__names">
-                            <i class='bx bxl-css3 skills__icon'></i>
-                            <span class="skills__name">CSS3</span>
-                        </div>
-                        <div class="skills__bar skills__css">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">85%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class='bx bxl-javascript skills__icon'></i>
-                            <span class="skills__name">JAVASCRIPT</span>
-                        </div>
-                        <div class="skills__bar skills__js">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">65%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class='bx bxs-paint skills__icon'></i>
-                            <span class="skills__name">UX/UI</span>
-                        </div>
-                        <div class="skills__bar skills__ux">
-
-                        </div>
-                        <div>
-                            <span class="skills__percentage">85%</span>
-                        </div>
-                    </div> --}}
                 </div>
 
                 <div>
@@ -183,22 +148,24 @@
             <h2 class="section-title">Services</h2>
             <div class="services__container bd-grid">
                 <div class="cards">
-                    <div class="card-wrap">
-                        {{-- <img src="{{ asset('frontend/img/shapes/points3.png') }}"
+                    @foreach ($services as $service)
+                        <div class="card-wrap">
+                            {{-- <img src="{{ asset('frontend/img/shapes/points3.png') }}"
                             class="points points2 points-sq" alt="" /> --}}
-                        <div class="card" data-card="UI / UX">
-                            <div class="card-content z-index">
-                                <img src="{{ asset('frontend/img/app-icon.png') }}" class="icon"
-                                    alt="" />
-                                <h3 class="title-sm">UI/UX</h3>
-                                <p class="text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Voluptatum hic veniam nihil.
-                                </p>
+                            <div class="card"
+                                data-card="{{ isset($service->service_name) ? $service->service_name : 'NOTHING' }}">
+                                <div class="card-content z-index">
+                                    <img src="{{ isset($service->service_logo) ? asset($service->service_logo) : asset('frontend/img/app-icon.png') }}"
+                                        class="icon" alt="" />
+                                    <h3 class="title-sm">{{ $service->service_name }}</h3>
+                                    <p class="text">
+                                        {{ isset($service->service_discription) ? $service->service_discription : 'No services added' }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-wrap">
+                    @endforeach
+                    {{-- <div class="card-wrap">
                         <div class="card" data-card="DESIGN">
                             <div class="card-content z-index">
                                 <img src="{{ asset('frontend/img/design-icon.png') }}" class="icon"
@@ -210,13 +177,13 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="card-wrap">
+                    {{-- <div class="card-wrap">
                         <div class="card" data-card="CODE">
                             <div class="card-content z-index">
-                                {{-- <img src="{{ asset('frontend/img/points3.png') }}" class="points points1 points-sq"
-                            alt="" /> --}}
+                                <img src="{{ asset('frontend/img/points3.png') }}" class="points points1 points-sq"
+                            alt="" />
                                 <img src="{{ asset('frontend/img/code-icon.png') }}" class="icon"
                                     alt="" />
                                 <h3 class="title-sm">Web Development</h3>
@@ -226,7 +193,7 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>
