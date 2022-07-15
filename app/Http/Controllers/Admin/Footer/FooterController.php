@@ -22,8 +22,6 @@ class FooterController extends Controller
 
 	public function storeFooterContent(Request $request)
 	{
-		dd($request->all());
-
 		Footer::create([
 			'address' => $request->address,
 			'email' => $request->email,
@@ -31,6 +29,10 @@ class FooterController extends Controller
 			'facebook' => $request->facebook,
 			'youtube' => $request->youtube,
 			'twitter' => $request->twitter,
+			'instagram' => $request->instagram,
+			'github' => $request->github,
+			'linkedin' => $request->linkedin,
+			'stackoverflow' => $request->stackoverflow,
 			'footer_credit' => $request->footer_credit,
 		]);
 
@@ -68,6 +70,10 @@ class FooterController extends Controller
 			'facebook' => $request->facebook,
 			'youtube' => $request->youtube,
 			'twitter' => $request->twitter,
+			'instagram' => $request->instagram,
+			'github' => $request->github,
+			'linkedin' => $request->linkedin,
+			'stackoverflow' => $request->stackoverflow,
 			'footer_credit' => $request->footer_credit,
 
 		]);

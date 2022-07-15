@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="{{ asset('frontend/css/styles.css') }}">
-
     <!-- =====BOX ICONS===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
@@ -17,7 +17,9 @@
     @php
         $result = App\Models\HomePageEtc::select('home_title', 'home_subtitle')->first();
         $profile = App\Models\User::select('profile_photo_path')->first();
+        $links = App\Models\Footer::first();
     @endphp
+    {{-- {{ dd($links) }} --}}
     <!--===== HEADER =====-->
     <header class="l-header">
         <nav class="nav bd-grid">
@@ -54,15 +56,18 @@
                         class="home__title-color">{{ isset($result->home_subtitle) ? $result->home_subtitle : 'CKBT' }}</span><br>
                     Web Developer</h1>
 
-                <a href="#" class="button">Contact</a>
+                <a href="#contact" class="button">Contact</a>
             </div>
 
             <div class="home__social">
-                <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                <a href="" class="home__social-icon"><i class='bx bxl-stack-overflow'></i></a>
-                <a href="" class="home__social-icon"><i class='bx bxl-github'></i></a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=shimulckbt@gmail.com" target="_blank"
-                    title="gmail.com" class="home__social-icon"><i class='bx bx-envelope'></i></a>
+                <a href="{{ $links->linkedin }}" target="_blank" class="home__social-icon" title="in/shimulckbt"><i
+                        class='bx bxl-linkedin'></i></a>
+                <a href="{{ $links->stackoverflow }}" target="_blank" class="home__social-icon"
+                    title="stackoverflow/shimulckbt"><i class='bx bxl-stack-overflow'></i></a>
+                <a href="{{ $links->github }}" target="_blank" class="home__social-icon" title="github/shimulckbt"><i
+                        class='bx bxl-github'></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to={{ $links->email }}" target="_blank"
+                    title="shimul.ckbt@gmail.com" class="home__social-icon"><i class='bx bx-envelope'></i></a>
             </div>
 
             <div class="home__img">
@@ -252,12 +257,17 @@
             <h2 class="section-title">Contact</h2>
 
             <div class="contact__container bd-grid">
-                <form action="" class="contact__form">
-                    <input type="text" placeholder="Name" class="contact__input">
-                    <input type="mail" placeholder="Email" class="contact__input">
-                    <textarea name="" id="" cols="0" rows="10" placeholder="Write Something.."
+                <form action="" id="contactForm" class="contact__form">
+                    @csrf
+                    <span class="error_text name_error"></span>
+                    <input type="text" name="name" placeholder="Name" class="contact__input">
+                    <span class="error_text email_error"></span>
+                    <input type="mail" name="email" placeholder="Email" class="contact__input">
+                    <span class="error_text message_error"></span>
+                    <textarea id="" cols="0" rows="10" name="message" placeholder="Your Message.."
                         class="contact__input"></textarea>
-                    <input type="button" value="Submit" class="contact__button button">
+                    <input type="submit" value="Submit" class="contact__button button">
+                    <span id="message" class="success_text"></span>
                 </form>
             </div>
         </section>
@@ -267,12 +277,15 @@
     <footer class="footer">
         <p class="footer__title">Shimul</p>
         <div class="footer__social">
-            <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
+            <a href="{{ $links->facebook }}" target="_blank" class="footer__icon"><i
+                    class='bx bxl-facebook'></i></a>
+            <a href="{{ $links->instagram }}" target="_blank" class="footer__icon"><i
+                    class='bx bxl-instagram'></i></a>
+            <a href="{{ $links->twitter }}" target="_blank" class="footer__icon"><i
+                    class='bx bxl-twitter'></i></a>
         </div>
 
-        <p class="footer__copy">2022 &#169; shimulckbt.com All rigths reserved</p>
+        <p class="footer__copy"> &#169; {{ $links->footer_credit }} All rights reserved</p>
     </footer>
 
 
@@ -281,6 +294,42 @@
 
     <!--===== MAIN JS =====-->
     <script src="{{ asset('frontend/js/main.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    {{-- contact form --}}
+
+    <script type="text/javascript">
+        $('#contactForm').submit(function(e) {
+            e.preventDefault();
+            let data = $('#contactForm').serialize();
+            console.log(data);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('create.contact') }}",
+                data: data,
+                dataType: 'json',
+                beforeSend: function() {
+                    $(document).find('span.error_text').text('');
+                },
+                success: function(response) {
+                    if (response.status == 200) {
+                        $('#contactForm')[0].reset();
+                        $('#message').empty().removeClass().addClass('success_text');
+                        $('#message').append(response.message);
+                    } else if (response.status == 400) {
+                        $.each(response.error, function(prefix, val) {
+                            $('span.' + prefix + '_error').text(val[0]);
+                        });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

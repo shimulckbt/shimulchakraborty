@@ -179,4 +179,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/all', [ContactController::class, 'allContactMessages'])->name('contact.message');
 
     Route::get('/delete/message/{id}', [ContactController::class, 'deleteContactMessage'])->name('delete.message');
-});
+}); //Middleware->auth
+
+
+Route::post('/contact', [ContactController::class, 'createContact'])->name('create.contact');

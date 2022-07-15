@@ -489,6 +489,16 @@ img {
   margin-left: auto;
 }
 
+.error_text {
+  color: red;
+  font-weight: 300;
+}
+
+.success_text {
+  color: rgb(40, 194, 26);
+  font-weight: 300;
+}
+
 /* ===== FOOTER =====*/
 .footer {
   background-color: var(--second-color);

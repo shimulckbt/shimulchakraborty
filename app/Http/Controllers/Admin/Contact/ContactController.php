@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 
@@ -30,6 +31,35 @@ class ContactController extends Controller
             return 0;
         }
     } // end method 
+
+    public function createContact(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'message' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'error' => $validator->errors()->toArray(),
+            ]);
+        } else {
+            $contact = new Contact();
+
+            $contact->name = $request->name;
+            $contact->email = $request->email;
+            $contact->message = $request->message;
+
+            $contact->save();
+
+            return response()->json([
+                'status' => 200,
+                'message' => "Thank you for your response, I will reach you asap..!"
+            ]);
+        }
+    }
 
 
     public function allContactMessages()
