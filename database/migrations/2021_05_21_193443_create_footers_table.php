@@ -21,6 +21,10 @@ class CreateFootersTable extends Migration
             $table->string('facebook');
             $table->string('youtube');
             $table->string('twitter');
+            $table->string('instagram');
+            $table->string('github');
+            $table->string('linkedin');
+            $table->string('stackoverflow');
             $table->string('footer_credit');
             $table->timestamps();
         });

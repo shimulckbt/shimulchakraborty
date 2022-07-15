@@ -51,7 +51,7 @@
         <section class="home bd-grid" id="home">
             <div class="home__data">
                 <h1 class="home__title">Hi,<br>I'am <span
-                        class="home__title-color">{{ isset($result->home_subtitle) ? $result->home_subtitle : 'Baal' }}</span><br>
+                        class="home__title-color">{{ isset($result->home_subtitle) ? $result->home_subtitle : 'CKBT' }}</span><br>
                     Web Developer</h1>
 
                 <a href="#" class="button">Contact</a>
@@ -88,7 +88,8 @@
 
             <div class="about__container bd-grid">
                 <div class="about__img">
-                    <img src="{{ asset('frontend/img/final-removebg.png') }}" alt="">
+                    <img src="{{ isset($profile->profile_photo_path) ? asset('upload/user_images/' . $profile->profile_photo_path) : asset('frontend/img/final-removebg.png') }}"
+                        alt="">
                 </div>
 
                 <div>

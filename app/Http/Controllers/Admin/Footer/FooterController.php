@@ -15,6 +15,32 @@ class FooterController extends Controller
 		return $result;
 	} // end mehtod 
 
+	public function addFooterContent()
+	{
+		return view('backend.footer.add_footer');
+	}
+
+	public function storeFooterContent(Request $request)
+	{
+		dd($request->all());
+
+		Footer::create([
+			'address' => $request->address,
+			'email' => $request->email,
+			'phone' => $request->phone,
+			'facebook' => $request->facebook,
+			'youtube' => $request->youtube,
+			'twitter' => $request->twitter,
+			'footer_credit' => $request->footer_credit,
+		]);
+
+		$notification = array(
+			'message' => 'Footer Created Successfully',
+			'alert-type' => 'success'
+		);
+
+		return redirect()->route('add.footer.content')->with($notification);
+	}
 
 	public function allFooterContents()
 	{

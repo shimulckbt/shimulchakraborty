@@ -33,60 +33,81 @@
                         </div>
                         <div class="card-body">
                             <div class="basic-form">
-                                <form method="post" action="{{ route('footer.update') }}">
+                                <form method="post" action="{{ route('footer.store') }}">
                                     @csrf
-                                    <input type="hidden" name="id" value="{{ $footer->id }}">
                                     <div class="form-group">
                                         <label class="info-title">Footer Address </label>
-                                        <textarea name="address" class="form-control" rows="4" id="comment">{{ $footer->address }}</textarea>
+                                        <textarea name="address" class="form-control" rows="4" id="comment" placeholder="Write something.."></textarea>
                                         @error('address')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label class="info-title">Footer Email </label>
-                                        <input type="email" name="email" class="form-control input-default "
-                                            value="{{ $footer->email }}">
+                                        <input type="email" name="email" class="form-control input-default ">
                                         @error('email')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label class="info-title">Footer Phone </label>
-                                        <input type="text" name="phone" class="form-control input-default "
-                                            value="{{ $footer->phone }}">
+                                        <input type="text" name="phone" class="form-control input-default ">
                                         @error('phone')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label class="info-title">facebook </label>
-                                        <input type="text" name="facebook" class="form-control input-default "
-                                            value="{{ $footer->facebook }}">
+                                        <label class="info-title">Facebook </label>
+                                        <input type="text" name="facebook" class="form-control input-default ">
                                         @error('facebook')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label class="info-title">youtube </label>
-                                        <input type="text" name="youtube" class="form-control input-default "
-                                            value="{{ $footer->youtube }}">
+                                        <label class="info-title">Youtube </label>
+                                        <input type="text" name="youtube" class="form-control input-default ">
                                         @error('youtube')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label class="info-title">twitter </label>
-                                        <input type="text" name="twitter" class="form-control input-default "
-                                            value="{{ $footer->twitter }}">
+                                        <label class="info-title">Twitter </label>
+                                        <input type="text" name="twitter" class="form-control input-default ">
                                         @error('twitter')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
+                                        <label class="info-title">Instagram </label>
+                                        <input type="text" name="instagram" class="form-control input-default ">
+                                        @error('instagram')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="info-title">Linked in </label>
+                                        <input type="text" name="linkedin" class="form-control input-default ">
+                                        @error('linkedin')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="info-title">Stack Overflow </label>
+                                        <input type="text" name="stackoverflow" class="form-control input-default ">
+                                        @error('stackoverflow')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="info-title">Github </label>
+                                        <input type="text" name="github" class="form-control input-default ">
+                                        @error('github')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
                                         <label class="info-title">Footer Credit </label>
-                                        <input type="text" name="footer_credit" class="form-control input-default "
-                                            value="{{ $footer->footer_credit }}">
+                                        <input type="text" name="footer_credit" class="form-control input-default ">
                                         @error('footer_credit')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

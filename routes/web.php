@@ -149,6 +149,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     // Footer Content All Routes 
     Route::prefix('footer')->group(function () {
+        Route::get('/add', [FooterController::class, 'addFooterContent'])->name('add.footer.content');
+
+        Route::post('/store', [FooterController::class, 'storeFooterContent'])->name('footer.store');
 
         Route::get('/all', [FooterController::class, 'allFooterContents'])->name('all.footer.content');
 

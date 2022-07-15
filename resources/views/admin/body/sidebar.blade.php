@@ -78,6 +78,7 @@
                   </a>
                   <ul aria-expanded="false">
                       <li><a href="{{ route('all.footer.content') }}">All Footer Content</a></li>
+                      <li><a href="{{ route('add.footer.content') }}">Add Footer Content</a></li>
                   </ul>
               </li>
               <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
