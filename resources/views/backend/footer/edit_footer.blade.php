@@ -83,6 +83,41 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="info-title">Instagram </label>
+                                        <input type="text" name="instagram" class="form-control input-default "
+                                            value="{{ $footer->instagram }}">
+                                        @error('instagram')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="info-title">Linked in </label>
+                                        <input type="text" name="linkedin" class="form-control input-default "
+                                            value="{{ $footer->linkedin }}">
+                                        @error('linkedin')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="info-title">Stack Overflow </label>
+                                        <input type="text" name="stackoverflow" class="form-control input-default "
+                                            value="{{ $footer->stackoverflow }}">
+                                        @error('stackoverflow')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="info-title">Github </label>
+                                        <input type="text" name="github" class="form-control input-default "
+                                            value="{{ $footer->github }}">
+                                        @error('github')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+
                                     <div class="form-group">
                                         <label class="info-title">Footer Credit </label>
                                         <input type="text" name="footer_credit" class="form-control input-default "

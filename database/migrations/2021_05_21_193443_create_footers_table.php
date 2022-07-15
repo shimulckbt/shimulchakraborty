@@ -15,17 +15,17 @@ class CreateFootersTable extends Migration
     {
         Schema::create('footers', function (Blueprint $table) {
             $table->id();
-            $table->text('address');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('facebook');
-            $table->string('youtube');
-            $table->string('twitter');
-            $table->string('instagram');
-            $table->string('github');
-            $table->string('linkedin');
-            $table->string('stackoverflow');
-            $table->string('footer_credit');
+            $table->text('address')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('github')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('stackoverflow')->nullable();
+            $table->string('footer_credit')->nullable();
             $table->timestamps();
         });
     }
