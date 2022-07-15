@@ -56,11 +56,11 @@
               </li>
               <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                       <i class="flaticon-053-heart"></i>
-                      <span class="nav-text">Home Content</span>
+                      <span class="nav-text">Home/About Content</span>
                   </a>
                   <ul aria-expanded="false">
-                      <li><a href="{{ route('all.home.content') }}">All Home Content</a></li>
-                      <li><a href="{{ route('add.home.content') }}">Add Home Content </a></li>
+                      <li><a href="{{ route('all.home.content') }}">All Home/About Content</a></li>
+                      <li><a href="{{ route('add.home.content') }}">Add Home/About Content </a></li>
                   </ul>
               </li>
               <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -83,10 +83,11 @@
               </li>
               <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                       <i class="flaticon-053-heart"></i>
-                      <span class="nav-text">Chart Content </span>
+                      <span class="nav-text">Skills </span>
                   </a>
                   <ul aria-expanded="false">
-                      <li><a href="{{ route('all.chart.content') }}">All Chart Content</a></li>
+                      <li><a href="{{ route('chart.create') }}">Add Skill</a></li>
+                      <li><a href="{{ route('all.chart.content') }}">All Skills</a></li>
                   </ul>
               </li>
               <li><a href="{{ route('contact.message') }}" class="ai-icon" aria-expanded="false">

@@ -54,7 +54,7 @@ class HomePageEtcController extends Controller
 
     public function storeHomeContent(Request $request)
     {
-
+        // dd($request->all());
         $request->validate([
             'home_title' => 'required',
             'home_subtitle' => 'required',
@@ -64,9 +64,6 @@ class HomePageEtcController extends Controller
             'home_subtitle.required' => 'Input Home Sub Title',
 
         ]);
-
-
-
         HomePageEtc::insert([
             'home_title' => $request->home_title,
             'home_subtitle' => $request->home_subtitle,
@@ -76,7 +73,6 @@ class HomePageEtcController extends Controller
             'total_review' => $request->total_review,
             'video_desciption' => $request->video_desciption,
             'video_url' => $request->video_url,
-
         ]);
 
         $notification = array(

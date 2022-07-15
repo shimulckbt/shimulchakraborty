@@ -15,9 +15,10 @@
 
 <body>
     @php
-        $result = App\Models\HomePageEtc::select('home_title', 'home_subtitle')->first();
+        $result = App\Models\HomePageEtc::select('home_title', 'home_subtitle', 'tech_description')->first();
         $profile = App\Models\User::select('profile_photo_path')->first();
         $links = App\Models\Footer::first();
+        $skills = App\Models\Chart::all();
     @endphp
     {{-- {{ dd($links) }} --}}
     <!--===== HEADER =====-->
@@ -98,10 +99,13 @@
                 </div>
 
                 <div>
-                    <h2 class="about__subtitle">I'am Shimul</h2>
-                    <p class="about__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum
-                        expedita quo culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo
-                        recusandae cumque perferendis! Recusandae alias accusamus atque.</p>
+                    <h2 class="about__subtitle">I'am
+                        {{ isset($result->home_subtitle) ? $result->home_subtitle : 'CKBT' }}</h2>
+                    <p class="about__text">
+                        {{ isset($result->tech_description)
+                            ? $result->tech_description
+                            : 'Professional Software Engineer motivated to do any task with experience in Web application development. Area of skills are PHP, Laravel, MysQL, React JS, Node JS, Express JS, Mongo DB, Javascript, CSS, Html' }}
+                    </p>
                 </div>
             </div>
         </section>
@@ -113,21 +117,23 @@
             <div class="skills__container bd-grid">
                 <div>
                     <h2 class="skills__subtitle">Profesional Skills</h2>
-                    <p class="skills__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id
-                        vero amet, alias architecto consectetur error eum eaque sit.</p>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class='bx bxl-html5 skills__icon'></i>
-                            <span class="skills__name">HTML5</span>
-                        </div>
-                        <div class="skills__bar skills__html">
+                    {{-- <p class="skills__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id
+                        vero amet, alias architecto consectetur error eum eaque sit.</p> --}}
+                    @foreach ($skills as $skill)
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                {{-- <i class='bx bxl-html5 skills__icon'></i> --}}
+                                <span class="skills__name">{{ $skill->x_data }}</span>
+                            </div>
+                            <div class="skills__bar" style="width: {{ $skill->css_prop }}">
 
+                            </div>
+                            <div>
+                                <span class="skills__percentage">{{ $skill->y_data }}</span>
+                            </div>
                         </div>
-                        <div>
-                            <span class="skills__percentage">95%</span>
-                        </div>
-                    </div>
-                    <div class="skills__data">
+                    @endforeach
+                    {{-- <div class="skills__data">
                         <div class="skills__names">
                             <i class='bx bxl-css3 skills__icon'></i>
                             <span class="skills__name">CSS3</span>
@@ -162,7 +168,7 @@
                         <div>
                             <span class="skills__percentage">85%</span>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div>
@@ -333,31 +339,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-{{-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> --}}
-{{-- <body class="antialiased">
-    <div
-        class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-        @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-    </div>
-</body> --}}

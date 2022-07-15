@@ -159,12 +159,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::post('/update', [FooterController::class, 'updateFooterContent'])->name('footer.update');
 
-        Route::get('/delete/{id}', [ClientReviewController::class, 'deleteReview'])->name('delete.review');
+        Route::get('/delete/{id}', [FooterController::class, 'deleteFooter'])->name('delete.footer');
     });
 
 
     // Chart Content All Routes 
     Route::prefix('chart')->group(function () {
+
+        Route::get('/create', [ChartController::class, 'createChartContent'])->name('chart.create');
+
+        Route::post('/store', [ChartController::class, 'storeChartContent'])->name('chart.store');
 
         Route::get('/all', [ChartController::class, 'allChartContents'])->name('all.chart.content');
 
@@ -172,7 +176,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::post('/update', [ChartController::class, 'updateChartContent'])->name('chart.update');
 
-        Route::get('/delete/{id}', [ClientReviewController::class, 'deleteReview'])->name('delete.review');
+        Route::get('/delete/{id}', [ChartController::class, 'deleteChart'])->name('delete.chart');
     });
 
 
