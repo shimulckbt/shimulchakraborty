@@ -125,13 +125,16 @@
                         <div class="skills__data">
                             <div class="skills__names">
                                 {{-- <i class='bx bxl-html5 skills__icon'></i> --}}
-                                <span class="skills__name">{{ $skill->x_data }}</span>
+                                <span
+                                    class="skills__name">{{ isset($skill->x_data) ? $skill->x_data : 'Not Set' }}</span>
                             </div>
-                            <div class="skills__bar" style="width: {{ $skill->css_prop }}">
+                            <div class="skills__bar"
+                                style="width: {{ isset($skill->css_prop) ? $skill->css_prop : '0%' }}">
 
                             </div>
                             <div>
-                                <span class="skills__percentage">{{ $skill->y_data }}</span>
+                                <span
+                                    class="skills__percentage">{{ isset($skill->y_data) ? $skill->y_data : '0%' }}</span>
                             </div>
                         </div>
                     @endforeach
