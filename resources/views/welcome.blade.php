@@ -10,7 +10,7 @@
     <!-- =====BOX ICONS===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Portfolio website</title>
+    <title>Shimul Chakraborty</title>
 </head>
 
 <body>
@@ -69,8 +69,8 @@
                     title="stackoverflow/shimulckbt"><i class='bx bxl-stack-overflow'></i></a>
                 <a href="{{ $links->github }}" target="_blank" class="home__social-icon" title="github/shimulckbt"><i
                         class='bx bxl-github'></i></a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to={{ $links->email }}" target="_blank"
-                    title="shimul.ckbt@gmail.com" class="home__social-icon"><i class='bx bx-envelope'></i></a>
+                <a href="mailto:{{ $links->email }}" target="_blank" title="shimul.ckbt@gmail.com"
+                    class="home__social-icon"><i class='bx bx-envelope'></i></a>
             </div>
 
             <div class="home__img">

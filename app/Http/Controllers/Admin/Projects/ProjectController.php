@@ -61,13 +61,13 @@ class ProjectController extends Controller
 
         $image_one = $request->file('img_one');
         $name_gen = hexdec(uniqid()) . '.' . $image_one->getClientOriginalExtension();
-        Image::make($image_one)->resize(319, 212)->save('upload/project/' . $name_gen);
+        Image::make($image_one)->save('upload/project/' . $name_gen);
         $save_url_one = env('APP_URL') . '/upload/project/' . $name_gen;
 
 
         $image_two = $request->file('img_two');
         $name_gen = hexdec(uniqid()) . '.' . $image_two->getClientOriginalExtension();
-        Image::make($image_two)->resize(319, 212)->save('upload/project/' . $name_gen);
+        Image::make($image_two)->save('upload/project/' . $name_gen);
         $save_url_two = env('APP_URL') . '/upload/project/' . $name_gen;
 
         Projects::insert([
@@ -103,13 +103,13 @@ class ProjectController extends Controller
 
             $image_one = $request->file('img_one');
             $name_gen = hexdec(uniqid()) . '.' . $image_one->getClientOriginalExtension();
-            Image::make($image_one)->resize(319, 212)->save('upload/project/' . $name_gen);
+            Image::make($image_one)->save('upload/project/' . $name_gen);
             $save_url_one = env('APP_URL') . '/upload/project/' . $name_gen;
 
 
             $image_two = $request->file('img_two');
             $name_gen = hexdec(uniqid()) . '.' . $image_two->getClientOriginalExtension();
-            Image::make($image_two)->resize(319, 212)->save('upload/project/' . $name_gen);
+            Image::make($image_two)->save('upload/project/' . $name_gen);
             $save_url_two = env('APP_URL') . '/upload/project/' . $name_gen;
 
             Projects::findOrFail($project_id)->update([

@@ -17,6 +17,7 @@ class CreateChartsTable extends Migration
             $table->id();
             $table->string('x_data');
             $table->string('y_data');
+            $table->string('css_prop');
             $table->timestamps();
         });
     }
