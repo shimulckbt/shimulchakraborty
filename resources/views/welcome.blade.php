@@ -3,14 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Shimul Chakraborty</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="It's a personal portfolio website that will help people to recognoze me as a web developer. So visit my page and do contact if anyone need web application.">
+    <meta name="keywords" content="shimulckbt, shimul ckbt, shimul, ckbt, shimul chakraborty">
+    <meta name="author" content="Shimul Chakraborty">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <link rel="stylesheet" href="{{ asset('frontend/css/styles.css') }}">
     <!-- =====BOX ICONS===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
-    <title>Shimul Chakraborty</title>
+    <meta name="google-site-verification" content="4FASCBeFJrCSmvVCd6Chkr0CbF8leTzy9-DrGUOn_wY" />
 </head>
 
 <body>
@@ -97,7 +102,7 @@
             <div class="about__container bd-grid">
                 <div class="about__img">
                     <img src="{{ isset($profile->profile_photo_path) ? asset('upload/user_images/' . $profile->profile_photo_path) : asset('frontend/img/final-removebg.png') }}"
-                        alt="">
+                        alt="image">
                 </div>
 
                 <div>
@@ -141,7 +146,7 @@
                 </div>
 
                 <div>
-                    <img src="{{ asset('frontend/img/work3.jpg') }}" alt="" class="skills__img">
+                    <img src="{{ asset('frontend/img/work3.jpg') }}" alt="image" class="skills__img">
                 </div>
             </div>
         </section>
@@ -155,12 +160,12 @@
                     @foreach ($services as $service)
                         <div class="card-wrap">
                             {{-- <img src="{{ asset('frontend/img/shapes/points3.png') }}"
-                            class="points points2 points-sq" alt="" /> --}}
+                            class="points points2 points-sq" alt="image" /> --}}
                             <div class="card"
                                 data-card="{{ isset($service->service_name) ? $service->service_name : 'NOTHING' }}">
                                 <div class="card-content z-index">
                                     <img src="{{ isset($service->service_logo) ? asset($service->service_logo) : asset('frontend/img/app-icon.png') }}"
-                                        class="icon" alt="" />
+                                        class="icon" alt="image" />
                                     <h3 class="title-sm">{{ $service->service_name }}</h3>
                                     <p class="text">
                                         {{ isset($service->service_discription) ? $service->service_discription : 'No services added' }}
@@ -182,7 +187,7 @@
                 @foreach ($projects as $project)
                     <a href="#work" class="work__img">
                         <img src="{{ isset($project->img_one) ? asset($project->img_one) : asset('frontend/img/work1.jpg') }}"
-                            alt="">
+                            alt="image">
                     </a>
                 @endforeach
             </div>
