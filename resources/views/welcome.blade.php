@@ -6,7 +6,7 @@
     <title>Shimul Chakraborty</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="It's a personal portfolio website that will help people to recognoze me as a web developer. So visit my page and do contact if anyone need web application.">
+        content="It's a personal portfolio website that will help people to recognize me as a web developer. So visit my page and contact me if anyone needs a web application">
     <meta name="keywords" content="shimulckbt, shimul ckbt, shimul, ckbt, shimul chakraborty">
     <meta name="author" content="Shimul Chakraborty">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -102,7 +102,7 @@
             <div class="about__container bd-grid">
                 <div class="about__img">
                     <img src="{{ isset($profile->profile_photo_path) ? asset('upload/user_images/' . $profile->profile_photo_path) : asset('frontend/img/final-removebg.png') }}"
-                        alt="image">
+                        alt="">
                 </div>
 
                 <div>
@@ -146,7 +146,7 @@
                 </div>
 
                 <div>
-                    <img src="{{ asset('frontend/img/work3.jpg') }}" alt="image" class="skills__img">
+                    <img src="{{ asset('frontend/img/work3.jpg') }}" alt="" class="skills__img">
                 </div>
             </div>
         </section>
@@ -160,12 +160,12 @@
                     @foreach ($services as $service)
                         <div class="card-wrap">
                             {{-- <img src="{{ asset('frontend/img/shapes/points3.png') }}"
-                            class="points points2 points-sq" alt="image" /> --}}
+                            class="points points2 points-sq" alt="" /> --}}
                             <div class="card"
                                 data-card="{{ isset($service->service_name) ? $service->service_name : 'NOTHING' }}">
                                 <div class="card-content z-index">
                                     <img src="{{ isset($service->service_logo) ? asset($service->service_logo) : asset('frontend/img/app-icon.png') }}"
-                                        class="icon" alt="image" />
+                                        class="icon" alt="" />
                                     <h3 class="title-sm">{{ $service->service_name }}</h3>
                                     <p class="text">
                                         {{ isset($service->service_discription) ? $service->service_discription : 'No services added' }}
@@ -187,7 +187,7 @@
                 @foreach ($projects as $project)
                     <a href="#work" class="work__img">
                         <img src="{{ isset($project->img_one) ? asset($project->img_one) : asset('frontend/img/work1.jpg') }}"
-                            alt="image">
+                            alt="">
                     </a>
                 @endforeach
             </div>
@@ -205,10 +205,9 @@
                     <span class="error_text email_error"></span>
                     <input type="mail" name="email" placeholder="Email" class="contact__input">
                     <span class="error_text message_error"></span>
-                    <textarea id="" cols="0" rows="10" name="message" placeholder="Your Message.."
-                        class="contact__input"></textarea>
+                    <textarea cols="0" rows="10" name="message" placeholder="Your Message.." class="contact__input"></textarea>
                     <input type="submit" value="Submit" class="contact__button button">
-                    <span id="message" class="success_text"></span>
+                    <span id="message" class="text-blue-600"></span>
                 </form>
             </div>
         </section>
@@ -222,8 +221,7 @@
                     class='bx bxl-facebook'></i></a>
             <a href="{{ $links->instagram }}" target="_blank" class="footer__icon"><i
                     class='bx bxl-instagram'></i></a>
-            <a href="{{ $links->twitter }}" target="_blank" class="footer__icon"><i
-                    class='bx bxl-twitter'></i></a>
+            <a href="{{ $links->twitter }}" target="_blank" class="footer__icon"><i class='bx bxl-twitter'></i></a>
         </div>
 
         <p class="footer__copy"> &#169; {{ $links->footer_credit }} All rights reserved</p>
